@@ -23,7 +23,7 @@ jobs:
         with:
           openapi-file: api.yaml
           generator: python
-          package-name: quanta-client
+          command-args: --packageName quanta_client
 
       - name: Package the generated client
         run: |
