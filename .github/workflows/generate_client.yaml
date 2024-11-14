@@ -24,6 +24,11 @@ jobs:
           openapi-file: api.yaml
           generator: python
 
+      - name: Package the generated client
+        run: |
+          # Create a zip file from the generated-client directory
+          zip -r quanta-client.zip python-client
+
       - name: Create GitHub Release
         id: create_release
         uses: actions/create-release@v1
@@ -41,6 +46,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./generated-client.zip
-          asset_name: generated-client.zip
+          asset_path: ./quanta-client.zip
+          asset_name: quanta-client.zip
           asset_content_type: application/zip
