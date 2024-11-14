@@ -2,8 +2,8 @@ name: Generate Client Code
 
 on:
   push:
-    tags:
-      - 'v*'
+    branches:
+      - master
 
 jobs:
   generate-python-client:
