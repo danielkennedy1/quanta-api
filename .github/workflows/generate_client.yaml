@@ -17,8 +17,8 @@ jobs:
       - name: Generate Python Client
         uses: openapi-generators/openapitools-generator-action@v1
         with:
+          input-spec: api.yaml
           generator: python
-          config-file: api.yaml
 
       - name: Create GitHub Release
         id: create_release
