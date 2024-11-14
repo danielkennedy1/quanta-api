@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: Device Metrics API
-  version: 1.0.1
+  version: 1.0.2
   description: An API to manage devices, metrics, and messages. This API allows you to track various devices and their metrics over time through messages.
 
 servers:
