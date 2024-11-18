@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: Device Metrics API
-  version: 1.0.0
+  version: 1.1.0
   description: An API to manage devices, metrics, and messages. This API allows you to track various devices and their metrics over time through messages.
 
 servers:
@@ -39,7 +39,6 @@ paths:
             schema:
               $ref: '#/components/schemas/Device'
             example:
-              id: 3
               description: "Humidity Sensor in Room 103"
       responses:
         '201':
@@ -126,7 +125,6 @@ paths:
             schema:
               $ref: '#/components/schemas/Metric'
             example:
-              id: 3
               name: "Pressure"
               data_type: "float"
       responses:
@@ -167,22 +165,6 @@ paths:
                 data_type: "float"
         '404':
           description: Metric not found
-    delete:
-      summary: Delete a specific metric
-      description: Remove a metric by its ID.
-      operationId: metric.deleteById
-      parameters:
-        - name: id
-          in: path
-          required: true
-          schema:
-            type: integer
-          description: The unique identifier for the metric
-          example: 1
-      responses:
-        '204':
-          description: Metric deleted
-
   /messages:
     get:
       summary: List all messages
@@ -298,7 +280,6 @@ components:
           description: A description of the device
           example: "Temperature Sensor in Room 101"
       required:
-        - id
         - description
       example:
         id: 1
@@ -321,7 +302,6 @@ components:
           description: The data type of the metric (e.g., string, integer, float)
           example: "float"
       required:
-        - id
         - name
         - data_type
       example:
@@ -355,7 +335,6 @@ components:
           description: The timestamp of the message
           example: "2023-10-01T12:30:00Z"
       required:
-        - id
         - device_id
         - metric_id
         - metric_value
