@@ -170,6 +170,19 @@ paths:
       summary: List all messages
       description: Retrieve a list of all messages, each containing a device ID, metric ID, metric value, and timestamp.
       operationId: message.getAll
+      parameters:
+        - name: device_id
+          in: query
+          description: Filter messages by device ID
+          required: false
+          schema:
+            type: integer
+        - name: metric_id
+          in: query
+          description: Filter messages by metric ID
+          required: false
+          schema:
+            type: integer
       responses:
         '200':
           description: A list of messages
